@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="./static/css/style.css" />
+
+  <title>Docify</title>
+
+</head>
+
+<body>
+  <aside class="left-sidebar">
+
+    <div class="left-sidebar-logo">
+      <a href="/management/dashboard"> <img src="./static/images/docify_logo_1.png" class="docify-logo"> </a>
+    </div>
+
+    <ul class="offset-list offcanvas-body sidebar-body" id="left-sidebar-accordion">
+      <a href="#" class="offset-list-item-link">
+        <li><img src="./static/images/home.png" class="ps-3 pe-2"> Home</li>
+      </a>
+
+      <a href="./topics" class="offset-list-item-link" target="_blank">
+        <li><img src="./static/images/topic.png" class="ps-3 pe-2"> Topics</li>
+      </a>
+
+      <a href="./search" class="offset-list-item-link" target="_blank">
+        <li><img src="./static/images/search.png" class="ps-3 pe-2"> Search</li>
+      </a>
+
+      <a href="./duplicate-search" class="offset-list-item-link">
+        <li><img src="./static/images/duplicate.png" class="ps-3 pe-2"> Duplicate search</li>
+      </a>
+
+      <a href="#" class="offset-list-item-link">
+        <li><img src="./static/images/log-out.png" class="ps-3 pe-2"> Logout</li>
+      </a>
+    </ul>
+
+  </aside>
+
+  <main class="main">
+    <!-- NAVBAR -->
+    <header>
+      <nav class="top-navbar d-flex justify-content-end align-items-center">
+        <img src="./static/images/docify_logo_1.png" alt="DOCIFY LOGO" class="docify-logo-smalldevices me-auto">
+        <button class="me-auto left-sidebar-toggle" style="border: none; outline: none;     background-color: #66615b;
+            border-radius: 50%;
+            color: #fff;"><i class="fa-solid fa-angles-left"></i></button>
+        <ul class="top-navbar__list">
+
+
+          <div class="d-flex align-item-center search-container"><input type="text" name="" id=""
+              class="search-input p-2" placeholder="Search">
+            <div><i class="fa-solid fa-magnifying-glass" style="background-color: #ededea;"></i></div>
+          </div>
+          <li><a href="" class="text-dark"><img src="/icons/notification.png" alt=""> Notification</a></li>
+
+          <div class="btn-group">
+            <button class="btn btn-white dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown"
+              data-bs-auto-close="true" aria-expanded="false">
+              <i class="fa-solid fa-gear"></i> User
+            </button>
+            <ul class="dropdown-menu userprofile-dropdown-menu" aria-labelledby="defaultDropdown">
+              <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> Settings</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> Manage account</a></li>
+              <li><a class="dropdown-item" href="/user/logout"><i class="fas fa-sign-out-alt"></i></i> Sign
+                  out</a></li>
+            </ul>
+          </div>
+        </ul>
+        <div class="hamburger-smalldevices"><img src="/icons/HamburgerIcon.png" alt="" width="24px" height="20px">
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <div class="row my-3 gx-3 gy-3 row1-data">
+
+        <div class="col-xl-4 col-lg-4 col-md-6 d-flex flex-column align-items-center">
+          <div class="card row1-data-card text-center">
+            <div class="card-header chart-header">
+              <h4>File type count</h4>
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-center" id="pieChart">
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xl-4 col-lg-4 col-md-6 d-flex flex-column align-items-center">
+          <div class="card row1-data-card text-center">
+            <div class="card-header chart-header">
+              <h4>File size break-up</h4>
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-center" id="barChart">
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xl-4 col-lg-4 col-md-6 d-flex flex-column align-items-center">
+          <div class="card row1-data-card text-center">
+            <div class="card-header chart-header">
+              <h4>Duplicate File %</h4>
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-center" id="gaugeChart">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- DATA-ROW-2 -->
+
+      <div class="row gy-3 gx-3 mb-3 row2-data">
+        <div class="col-xl-6 col-md-10">
+          <div class="card  row2-data-card">
+            <div class="card-body">
+              <h6>File Details</h6>
+              <div id="chart4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="card row2-data-card">
+            <div class="card-body">
+              <h6>Total files filtered</h6>
+              <div id="chart1"></div>
+              <h1>100 </h1>
+              <div id="count">File Count</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="card row2-data-card">
+            <div class="card-body">
+              <h6>Deleted Duplicate files</h6>
+              <div id="chart1"></div>
+              <h1>75</h1>
+              <div id="count"> Count</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="card row2-data-card">
+            <div class="card-body">
+              <h6>Incomplete Action</h6>
+              <div id="chart1"></div>
+              <h1>25 </h1>
+              <div id="count">Count</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- DATA-ROW-3/ USER TABLE -->
+
+    </div>
+  </main>
+
+  <!-- JavaScript -->
+  <script src="./static/js/jquery.min.js"></script>
+  <script src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="./static/js/script.js"></script>
+  <script src="./static/js/leftsidebartoggle.js"></script>
+  <script>
+
+    // console.log('gson', gson);
+    let test = '{{ gson }}';
+    console.log('test::', test)
+
+    let pieChart = {
+      series: [44, 55, 13, 43, 22],
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      labels: ["jpg", "pdf", "png", "docx", "others"],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: "bottom"
+          }
+        }
+      }]
+    };
+
+    var chart1 = new ApexCharts(document.querySelector("#pieChart"), pieChart);
+    chart1.render();
+
+    let barChart = {
+      series: [{
+        name: 'Size',
+        data: [61, 50, 43, 51, 55]
+      }],
+      chart: {
+        type: 'bar',
+        height: 350
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '75%',
+          endingShape: 'rounded'
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+      },
+      xaxis: {
+        categories: ['jpg', 'pdf', 'png', 'docx', 'others'],
+      },
+      yaxis: {
+        title: {
+          text: 'File size (MB)'
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val + " MB"
+          }
+        }
+      }
+    };
+
+    var chart2 = new ApexCharts(document.querySelector("#barChart"), barChart);
+    chart2.render();
+
+    let gaugeChart = {
+      series: [67],
+      chart: {
+        height: 350,
+        type: "radialBar",
+        offsetY: -10
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -135,
+          endAngle: 135,
+          dataLabels: {
+            name: {
+              fontSize: "16px",
+              color: undefined,
+              offsetY: 120
+            },
+            value: {
+              offsetY: 76,
+              fontSize: "22px",
+              color: undefined,
+              formatter: function (val) {
+                return val + "%";
+              }
+            }
+          }
+        }
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          shadeIntensity: 0.15,
+          inverseColors: false,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 50, 65, 91]
+        }
+      },
+      stroke: {
+        dashArray: 4
+      },
+      labels: ["Duplicate File"]
+    };
+
+    var chart3 = new ApexCharts(document.querySelector("#gaugeChart"), gaugeChart);
+    chart3.render();
+
+    let options = {
+
+      dataLabels: {
+        enabled: true
+      },
+      legend: {
+        show: true
+      },
+      chart: {
+        type: 'donut',
+        height: 200
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '40%'
+          }
+        }
+      },
+      series: [44, 55, 11],
+      labels: ['Files filtered', 'Duplicate files deleted', 'Files remaining']
+    }
+
+    var chart = new ApexCharts(document.querySelector("#chart4"), options);
+    chart.render();
+  </script>
+</body>
+
+</html>
